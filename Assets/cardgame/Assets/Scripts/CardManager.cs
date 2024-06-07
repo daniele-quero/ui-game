@@ -13,6 +13,8 @@ public class CardManager : MonoBehaviour
 
     [SerializeField] private Slider _slider;
 
+    [SerializeField] Animator _anim; 
+
     public static Action UncoverCoverCards;
     public static Action<Vector2> ResizingCells;
     public static Action<int> AssertCardsLeft;
@@ -22,6 +24,7 @@ public class CardManager : MonoBehaviour
 
     void Start()
     {
+        GameManager.MalusEffect += Explode;
         InitCardsLeft();
         AssertLevel?.Invoke(LevelScriptableObject.label);
         _cardContainer = GetComponentInChildren<GridLayoutGroup>();
@@ -121,4 +124,6 @@ public class CardManager : MonoBehaviour
         }
         return cards;
     }
+
+    public void Explode() => _anim.SetTrigger("explode");
 }

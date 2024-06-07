@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private float _endLeveltime = 3f;
 
     public static Action UncoverCoverCards;
+    public static Action MalusEffect;
     public static Action<int> LivesUpdated;
     public static Action<int> CardsUpdated;
 
@@ -86,7 +87,8 @@ public class GameManager : MonoBehaviour
                 }
             case CardScriptableObject.CardType.MALUS:
                 {
-                    //apply vfx
+                    //play sfx
+                    MalusEffect?.Invoke();
                     if (--_livesLeft < 0)
                     {
                         //UnloadLevel();
