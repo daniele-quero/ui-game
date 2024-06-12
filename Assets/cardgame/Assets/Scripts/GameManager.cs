@@ -51,15 +51,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-        
+
     }
 
     private void LoadLevel()
     {
-        if (_canvas.transform.childCount > _level)
-        {
-            _canvas.transform.GetChild(_level).gameObject.SetActive(true);
-        }
+
+        _canvas.transform.GetChild(_level).gameObject.SetActive(true);
     }
 
     private void UnloadLevel()
@@ -117,12 +115,16 @@ public class GameManager : MonoBehaviour
 
 
     private IEnumerator VictoryCoroutine(GameObject o)
-    {   
+    {
         yield return new WaitUntil(() => o.IsDestroyed());
         _level++;
-        LoadLevel();
-        yield return new WaitUntil(() => _canvas.transform.GetChild(_level).gameObject.activeInHierarchy);
-        UnloadLevel();
+        if (_canvas.transform.childCount > _level)
+        {
+            LoadLevel();
+            yield return new WaitUntil(() => _canvas.transform.GetChild(_level).gameObject.activeInHierarchy);//todo
+            UnloadLevel();
+        }
+        else yield return null;
     }
 
     private IEnumerator GameOverCoroutine(GameObject o)
