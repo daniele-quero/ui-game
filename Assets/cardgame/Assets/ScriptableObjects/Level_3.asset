@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b05ac14cea72cdb4f811acf5e59eb683, type: 3}
-  m_Name: Level_1
+  m_Name: Level_3
   m_EditorClassIdentifier: 
   cardOptions:
   - cardTemplate: {fileID: 11400000, guid: af096486a1ec76e45b3646d19748be71, type: 2}
-    number: 4
+    number: 6
   - cardTemplate: {fileID: 11400000, guid: 5681d2a20bbea0b4cb268052752af45a, type: 2}
     number: 2
   - cardTemplate: {fileID: 11400000, guid: 6d00dd9364f82824db8524c45f8aad98, type: 2}
-    number: 0
-  label: Level 1
-  time: 2.5
+    number: 1
+  label: 'Level '
+  time: 2

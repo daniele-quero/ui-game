@@ -45,7 +45,8 @@ public class Card : MonoBehaviour
 
     private void OnUncoverCover()
     {
-        StartCoroutine(UncoverCover());
+        if (gameObject.activeInHierarchy)
+            StartCoroutine(UncoverCover());
     }
 
     public void Init(CardScriptableObject obj, float time)

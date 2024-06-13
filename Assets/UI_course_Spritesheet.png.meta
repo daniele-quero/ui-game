@@ -3,7 +3,7 @@ guid: 1fb89ea78633c234b9b0bf82bde145b5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -74,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -110,6 +116,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2163,106 +2196,105 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_course_Spritesheet_50: 1082982122
-      UI_course_Spritesheet_58: 1496135883
-      UI_course_Spritesheet_26: -640071486
-      UI_course_Spritesheet_81: 1263489093
-      UI_course_Spritesheet_23: 1141789517
-      UI_course_Spritesheet_52: -271479437
-      UI_course_Spritesheet_61: 285416290
-      UI_course_Spritesheet_90: 716748705
-      UI_course_Spritesheet_12: -1382475149
-      UI_course_Spritesheet_45: 695445427
-      UI_course_Spritesheet_63: 697080455
-      UI_course_Spritesheet_2: 288929740
-      UI_course_Spritesheet_64: -358356118
-      UI_course_Spritesheet_60: -559083501
-      UI_course_Spritesheet_72: -933350516
-      UI_course_Spritesheet_91: -1557550819
-      UI_course_Spritesheet_66: -1647246927
-      UI_course_Spritesheet_41: 660278038
+      UI_course_Spritesheet_0: 19031949
+      UI_course_Spritesheet_1: -312558214
       UI_course_Spritesheet_10: -292469378
-      UI_course_Spritesheet_51: -882396731
-      UI_course_Spritesheet_75: -1154086119
-      UI_course_Spritesheet_21: -67240054
-      UI_course_Spritesheet_47: -1050683449
-      UI_course_Spritesheet_27: 327956693
-      UI_course_Spritesheet_65: -1671378410
-      UI_course_Spritesheet_43: -1678067287
-      UI_course_Spritesheet_4: -212147527
-      UI_course_Spritesheet_71: -1261483003
-      UI_course_Spritesheet_44: 1722200946
-      UI_course_Spritesheet_32: -394189344
-      UI_course_Spritesheet_94: 688395804
-      UI_course_Spritesheet_59: 808135315
-      UI_course_Spritesheet_88: -1700594188
+      UI_course_Spritesheet_11: -1504107174
+      UI_course_Spritesheet_12: -1382475149
       UI_course_Spritesheet_13: 2037035994
+      UI_course_Spritesheet_14: 137690513
+      UI_course_Spritesheet_15: 1603512604
       UI_course_Spritesheet_16: -1717302424
-      UI_course_Spritesheet_49: -603056880
-      UI_course_Spritesheet_62: -706066387
-      UI_course_Spritesheet_74: -1620533877
-      UI_course_Spritesheet_39: -1958005696
-      UI_course_Spritesheet_19: -1685911276
-      UI_course_Spritesheet_77: -851096171
-      UI_course_Spritesheet_55: -671116138
-      UI_course_Spritesheet_84: 1943021536
-      UI_course_Spritesheet_80: 646095297
-      UI_course_Spritesheet_22: -50459081
-      UI_course_Spritesheet_7: -1003055299
       UI_course_Spritesheet_17: 1888322304
       UI_course_Spritesheet_18: 1006692012
+      UI_course_Spritesheet_19: -1685911276
+      UI_course_Spritesheet_2: 288929740
+      UI_course_Spritesheet_20: -1077203285
+      UI_course_Spritesheet_21: -67240054
+      UI_course_Spritesheet_22: -50459081
+      UI_course_Spritesheet_23: 1141789517
+      UI_course_Spritesheet_24: 2092943046
       UI_course_Spritesheet_25: -849074200
+      UI_course_Spritesheet_26: -640071486
+      UI_course_Spritesheet_27: 327956693
+      UI_course_Spritesheet_28: 1453807773
+      UI_course_Spritesheet_29: -1619472848
+      UI_course_Spritesheet_3: 2011105821
+      UI_course_Spritesheet_30: 62333335
+      UI_course_Spritesheet_31: 1207875149
+      UI_course_Spritesheet_32: -394189344
+      UI_course_Spritesheet_33: -1264880208
+      UI_course_Spritesheet_34: 1975352962
+      UI_course_Spritesheet_35: -649425298
+      UI_course_Spritesheet_36: 345876576
+      UI_course_Spritesheet_37: 817754413
+      UI_course_Spritesheet_38: -1245897643
+      UI_course_Spritesheet_39: -1958005696
+      UI_course_Spritesheet_4: -212147527
+      UI_course_Spritesheet_40: 6944593
+      UI_course_Spritesheet_41: 660278038
+      UI_course_Spritesheet_42: -1977841709
+      UI_course_Spritesheet_43: -1678067287
+      UI_course_Spritesheet_44: 1722200946
+      UI_course_Spritesheet_45: 695445427
+      UI_course_Spritesheet_46: 93091204
+      UI_course_Spritesheet_47: -1050683449
+      UI_course_Spritesheet_48: -955709532
+      UI_course_Spritesheet_49: -603056880
+      UI_course_Spritesheet_5: 1411591837
+      UI_course_Spritesheet_50: 1082982122
+      UI_course_Spritesheet_51: -882396731
+      UI_course_Spritesheet_52: -271479437
+      UI_course_Spritesheet_53: 1102860059
+      UI_course_Spritesheet_54: -1920127339
+      UI_course_Spritesheet_55: -671116138
+      UI_course_Spritesheet_56: 1180353755
+      UI_course_Spritesheet_57: 1708057884
+      UI_course_Spritesheet_58: 1496135883
+      UI_course_Spritesheet_59: 808135315
+      UI_course_Spritesheet_6: -195839150
+      UI_course_Spritesheet_60: -559083501
+      UI_course_Spritesheet_61: 285416290
+      UI_course_Spritesheet_62: -706066387
+      UI_course_Spritesheet_63: 697080455
+      UI_course_Spritesheet_64: -358356118
+      UI_course_Spritesheet_65: -1671378410
+      UI_course_Spritesheet_66: -1647246927
+      UI_course_Spritesheet_67: -1590656655
+      UI_course_Spritesheet_68: 1351482660
+      UI_course_Spritesheet_69: 41469934
+      UI_course_Spritesheet_7: -1003055299
+      UI_course_Spritesheet_70: -1226135084
+      UI_course_Spritesheet_71: -1261483003
+      UI_course_Spritesheet_72: -933350516
+      UI_course_Spritesheet_73: 1928334106
+      UI_course_Spritesheet_74: -1620533877
+      UI_course_Spritesheet_75: -1154086119
+      UI_course_Spritesheet_76: -402200270
+      UI_course_Spritesheet_77: -851096171
+      UI_course_Spritesheet_78: 2010448431
+      UI_course_Spritesheet_79: -626083791
+      UI_course_Spritesheet_8: 885969590
+      UI_course_Spritesheet_80: 646095297
+      UI_course_Spritesheet_81: 1263489093
       UI_course_Spritesheet_82: -1378324947
       UI_course_Spritesheet_83: -1045770502
-      UI_course_Spritesheet_8: 885969590
-      UI_course_Spritesheet_1: -312558214
-      UI_course_Spritesheet_89: -1416991094
-      UI_course_Spritesheet_57: 1708057884
+      UI_course_Spritesheet_84: 1943021536
       UI_course_Spritesheet_85: -660680913
-      UI_course_Spritesheet_93: -1071961423
-      UI_course_Spritesheet_46: 93091204
-      UI_course_Spritesheet_9: 1649000471
-      UI_course_Spritesheet_48: -955709532
-      UI_course_Spritesheet_35: -649425298
-      UI_course_Spritesheet_95: 156701683
-      UI_course_Spritesheet_34: 1975352962
-      UI_course_Spritesheet_69: 41469934
-      UI_course_Spritesheet_14: 137690513
-      UI_course_Spritesheet_79: -626083791
-      UI_course_Spritesheet_96: 1827603096
-      UI_course_Spritesheet_11: -1504107174
-      UI_course_Spritesheet_70: -1226135084
-      UI_course_Spritesheet_28: 1453807773
-      UI_course_Spritesheet_40: 6944593
-      UI_course_Spritesheet_31: 1207875149
-      UI_course_Spritesheet_42: -1977841709
-      UI_course_Spritesheet_5: 1411591837
-      UI_course_Spritesheet_67: -1590656655
-      UI_course_Spritesheet_38: -1245897643
-      UI_course_Spritesheet_3: 2011105821
-      UI_course_Spritesheet_73: 1928334106
-      UI_course_Spritesheet_24: 2092943046
-      UI_course_Spritesheet_6: -195839150
-      UI_course_Spritesheet_78: 2010448431
-      UI_course_Spritesheet_54: -1920127339
-      UI_course_Spritesheet_68: 1351482660
-      UI_course_Spritesheet_53: 1102860059
-      UI_course_Spritesheet_92: 1190526720
-      UI_course_Spritesheet_33: -1264880208
-      UI_course_Spritesheet_37: 817754413
-      UI_course_Spritesheet_20: -1077203285
-      UI_course_Spritesheet_0: 19031949
-      UI_course_Spritesheet_36: 345876576
-      UI_course_Spritesheet_76: -402200270
-      UI_course_Spritesheet_29: -1619472848
-      UI_course_Spritesheet_56: 1180353755
       UI_course_Spritesheet_86: 1455508840
-      UI_course_Spritesheet_30: 62333335
       UI_course_Spritesheet_87: 209384077
-      UI_course_Spritesheet_15: 1603512604
-  spritePackingTag: 
+      UI_course_Spritesheet_88: -1700594188
+      UI_course_Spritesheet_89: -1416991094
+      UI_course_Spritesheet_9: 1649000471
+      UI_course_Spritesheet_90: 716748705
+      UI_course_Spritesheet_91: -1557550819
+      UI_course_Spritesheet_92: 1190526720
+      UI_course_Spritesheet_93: -1071961423
+      UI_course_Spritesheet_94: 688395804
+      UI_course_Spritesheet_95: 156701683
+      UI_course_Spritesheet_96: 1827603096
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

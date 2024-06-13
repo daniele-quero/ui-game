@@ -20,4 +20,4 @@ MonoBehaviour:
   - cardTemplate: {fileID: 11400000, guid: 6d00dd9364f82824db8524c45f8aad98, type: 2}
     number: 1
   label: 'Level '
-  time: 2.5
+  time: 2.2

@@ -5,16 +5,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using static CardScriptableObject.CardType;
 
 public class GameManager : MonoBehaviour
 {
+    private const string POINT_KEY = "Point";
+    private const string VICTORY_KEY = "Victory";
+    private const string MALUS_KEY = "Malus";
+    private const string BONUS_KEY = "Bonus";
+    private const string GAMEOVER_KEY = "Gameover";
     private int _cardsLeft;
     [SerializeField] private int _livesLeft = 3;
 
-    [SerializeField] LevelScriptableObject[] _levels;
-    [SerializeField] GameObject _gameTemplate;
-    [SerializeField] Canvas _canvas;
-    [SerializeField] GameObject _endLevel;
+    [SerializeField] private LevelScriptableObject[] _levels;
+    [SerializeField] private GameObject _gameTemplate;
+    [SerializeField] private Canvas _canvas;
+    [SerializeField] private GameObject _endLevel;
+    [SerializeField] private GameObject _audioManager;
+
+    private Dictionary<string, AudioSource> _audioSources = new Dictionary<string, AudioSource>();
 
     private int _thisLevel;
     private int _level;
@@ -50,8 +59,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        PrepareSFX();
 
+    }
 
+    private void PrepareSFX()
+    {
+        var sources = _audioManager.GetComponents<AudioSource>();
+        _audioSources.Add(POINT_KEY, sources[0]);
+        _audioSources.Add(VICTORY_KEY, sources[1]);
+        _audioSources.Add(MALUS_KEY, sources[2]);
+        _audioSources.Add(BONUS_KEY, sources[3]);
+        _audioSources.Add(GAMEOVER_KEY, sources[4]);
     }
 
     private void LoadLevel()
@@ -70,13 +89,15 @@ public class GameManager : MonoBehaviour
 
     private void OnUncover(CardScriptableObject.CardType cardType)
     {
-        //play sfx
+        
         switch (cardType)
         {
             case CardScriptableObject.CardType.POINT:
                 {
+                    _audioSources[POINT_KEY].Play();
                     if (--_cardsLeft <= 0)
                     {
+                        _audioSources[VICTORY_KEY].Play();
                         StartCoroutine(VictoryCoroutine(EndLevel("Victory!")));
                         break;
                     }
@@ -85,19 +106,19 @@ public class GameManager : MonoBehaviour
                 }
             case CardScriptableObject.CardType.MALUS:
                 {
-                    //play sfx
+                    _audioSources[MALUS_KEY].Play();
                     MalusEffect?.Invoke();
                     if (--_livesLeft < 0)
                     {
-                        //UnloadLevel();
-                        StartCoroutine(GameOverCoroutine(EndLevel("Gameover")));
-                        //break;
+                        _audioSources[GAMEOVER_KEY].Play();
+                        StartCoroutine(GameOverCoroutine(EndLevel(GAMEOVER_KEY)));
                     }
                     LivesUpdated?.Invoke(_livesLeft);
                     break;
                 }
             case CardScriptableObject.CardType.BONUS:
                 {
+                    _audioSources[BONUS_KEY].Play();
                     UncoverCoverCards?.Invoke();
                     break;
                 }
