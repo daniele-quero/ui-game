@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
 
 public class Common : BaseScene
@@ -26,7 +23,7 @@ public class Common : BaseScene
 
     private void Deactivate()
     {
-        _toggleGroup.enabled = false;
+        _toggleGroup.enabled = false; //disabling this other wise some toggles would be checked automatically
         _canvas.enabled = false;
     }
 }
