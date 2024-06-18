@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4171965847673533284}
   - component: {fileID: 3606761836211935646}
   - component: {fileID: 4849783837603696874}
+  - component: {fileID: 7208332941104644231}
   m_Layer: 5
   m_Name: Menu Button
   m_TagString: Untagged
@@ -120,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4171965847673533284}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7208332941104644231}
+        m_TargetAssemblyTypeName: MainMenuButton, Assembly-CSharp
+        m_MethodName: LaunchGoToMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4849783837603696874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,4 +146,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2f86bbbc7acd84199beaaa521ff9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tooltipText: {fileID: 0}
   _label: Main Menu
+--- !u!114 &7208332941104644231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5459524222988312953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ebc660a25425ef42bdc94b283ebfaf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameChoice : BaseScene
+public class Profile : BaseScene
 {
     protected override void OnEnable()
     {
         base.OnEnable();
-        GameChoiceButton.OpenGameChoice += Activate;
+        ProfileButton.OpenProfile += Activate;
     }
 
     protected override void Activate(bool active) => _canvas.enabled = active;

@@ -9,7 +9,6 @@ public abstract class BaseScene : MonoBehaviour
     virtual protected void OnEnable()
     {
         _canvas = GetComponent<Canvas>();
-        GameChoiceButton.OpenGameChoice += Activate;
     }
 
     protected abstract void Activate(bool active);
