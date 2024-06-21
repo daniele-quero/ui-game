@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tooltipText: {fileID: 0}
   _label: Profile and Score
+  _audioSource: {fileID: 0}
 --- !u!114 &-7388901979352230310
 MonoBehaviour:
   m_ObjectHideFlags: 0

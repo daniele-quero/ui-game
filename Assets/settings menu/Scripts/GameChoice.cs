@@ -4,7 +4,9 @@ public class GameChoice : BaseScene
     {
         base.OnEnable();
         GameChoiceButton.OpenGameChoice += Activate;
+        GameLoader.GameLoaderPressed += Deactivate;
     }
 
     protected override void Activate(bool active) => _canvas.enabled = active;
+    private void Deactivate() => _canvas.enabled = false;
 }

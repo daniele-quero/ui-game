@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using static CardScriptableObject.CardType;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +37,8 @@ public class GameManager : MonoBehaviour
     {
         Card.CardAction += OnUncover;
         CardManager.AssertCardsLeft += InitializePlayerParameters;
+        PlayPause.PlayPausePressed += Pause;
+
         foreach (var l in _levels)
         {
             var g = Instantiate(_gameTemplate, _canvas.transform);
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     private void OnUncover(CardScriptableObject.CardType cardType)
     {
-        
+
         switch (cardType)
         {
             case CardScriptableObject.CardType.POINT:
@@ -153,5 +154,13 @@ public class GameManager : MonoBehaviour
         _livesLeft = 1;
         LivesUpdated?.Invoke(_livesLeft);
         _canvas.transform.GetChild(_level).GetComponent<CardManager>().Restart();
+    }
+
+    private void Pause(bool isPaused)
+    {
+        if (isPaused)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
     }
 }

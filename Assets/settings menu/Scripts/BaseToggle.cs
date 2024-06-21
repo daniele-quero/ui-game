@@ -1,17 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BaseToggle : MonoBehaviour
 {
     private Toggle _toggle;
-
+    public static Action ButtonPressed;
     protected virtual void OnEnable()
     {
         _toggle = GetComponent<Toggle>();
         MainMenuButton.GoToMain += Untoggle;
     }
 
-    private void Untoggle()
+    protected void Untoggle()
     {
         Untoggle(false);
     }
