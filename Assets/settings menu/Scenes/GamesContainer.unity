@@ -315,6 +315,7 @@ RectTransform:
   - {fileID: 1951304313}
   - {fileID: 1552101503}
   - {fileID: 380908370}
+  - {fileID: 2098438486}
   m_Father: {fileID: 661801871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -376,6 +377,7 @@ MonoBehaviour:
   _foodNameTooltipText: {fileID: 380908371}
   _notesContent: {fileID: 738014866}
   _font: {fileID: 12800000, guid: 835c0409e6be2fb46a2942f93a276578, type: 3}
+  _fireworks: {fileID: 2098438488}
 --- !u!1 &331575857
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +817,6 @@ RectTransform:
   - {fileID: 414997752}
   - {fileID: 805952933}
   - {fileID: 295114164}
-  - {fileID: 2098438486}
   m_Father: {fileID: 1912747363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1010,7 +1011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -454, y: 136.10152}
+  m_AnchoredPosition: {x: -454, y: 129.19583}
   m_SizeDelta: {x: 908, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &738014868
@@ -2146,7 +2147,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1510137506}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9959814
+  m_Size: 0.93718576
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2341,16 +2342,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098438485}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 661801871}
+  m_Father: {fileID: 295114164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -197.78}
+  m_AnchoredPosition: {x: 382, y: -489.77997}
   m_SizeDelta: {x: 640, y: 640}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2098438487
@@ -2381,7 +2382,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098438485}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

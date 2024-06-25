@@ -11,6 +11,7 @@ public class MessageBoard : MonoBehaviour
     [SerializeField] private Text _foodNameTooltipText;
     [SerializeField] private GameObject _notesContent;
     [SerializeField] private Font _font;
+    [SerializeField] private Image _fireworks;
 
     private void OnEnable()
     {
@@ -25,6 +26,7 @@ public class MessageBoard : MonoBehaviour
 
     private void ClearUp()
     {
+        _fireworks.enabled = false;
         _foodsText.text = _default;
         _notesContent.GetComponentsInChildren<Text>().ToList().ForEach(t => Destroy(t.gameObject));
     }
@@ -32,6 +34,7 @@ public class MessageBoard : MonoBehaviour
     private void Show(FoodScriptableObject[] foods)
     {
         int p, c, v;
+
         if (CorrectChoice(foods, out p, out v, out c))
             CorrectChoiceDisplay(foods);
         else
@@ -63,11 +66,17 @@ public class MessageBoard : MonoBehaviour
 
     private void CorrectChoiceDisplay(FoodScriptableObject[] foods)
     {
+        WellDone();
         _foodsText.text = _prefix + string.Join(", ", foods.Select(i => i.name));
         foreach (string fn in foods.SelectMany(f => f.notes))
             AddNote(fn);
 
         AddNote("A trick for the quantities: 2 parts veggies, 1 part proteins, 1 part carbs.");
+    }
+
+    private void WellDone()
+    {
+        _fireworks.enabled = true;
     }
 
     private void AddNote(string note)
