@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ff2519fe713460479a7b4ca08900a53, type: 3}
-  m_Name: Pasta
+  m_Name: Green Beens
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 76c7769cb7cee144c8c40147fadf4677, type: 3}
-  foodType: 1
-  notes:
-  - Pasta is made of durum wheat.
-  - Pasta is not suitable for gluten-intolerant people, although many gluten-free
-    alternative exist.
+  icon: {fileID: 21300000, guid: 84a2371517c6fd24584ae7ad36ae8a15, type: 3}
+  foodType: 2
+  notes: []

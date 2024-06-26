@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ff2519fe713460479a7b4ca08900a53, type: 3}
-  m_Name: Pasta
+  m_Name: Bugs
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 76c7769cb7cee144c8c40147fadf4677, type: 3}
-  foodType: 1
+  icon: {fileID: 21300000, guid: ff0b614ef70ed4743a700301423619f9, type: 3}
+  foodType: 0
   notes:
-  - Pasta is made of durum wheat.
-  - Pasta is not suitable for gluten-intolerant people, although many gluten-free
-    alternative exist.
+  - Bugs like crickets are an incredibly rich source of protein.
+  - Raising bugs is way more sustainable than any other cattle, in terms of CO2 emission
+    and water consumption.
+  - Keep your mind open, bugs they taste good!

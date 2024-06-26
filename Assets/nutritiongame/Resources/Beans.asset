@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ff2519fe713460479a7b4ca08900a53, type: 3}
-  m_Name: Pasta
+  m_Name: Beans
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 76c7769cb7cee144c8c40147fadf4677, type: 3}
-  foodType: 1
+  icon: {fileID: 21300000, guid: a77b0c4402831e440bf3d1106f872c0d, type: 3}
+  foodType: 0
   notes:
-  - Pasta is made of durum wheat.
-  - Pasta is not suitable for gluten-intolerant people, although many gluten-free
-    alternative exist.
+  - Beans are very high in protein and fiber, with close-to-zero fat.
+  - Beans are perfect for veteriano or vegan diets, but not only.

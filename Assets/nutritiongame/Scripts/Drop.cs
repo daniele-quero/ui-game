@@ -21,6 +21,7 @@ public class Drop : MonoBehaviour, IDropHandler
                 eventData.pointerDrag.transform.SetParent(transform);
                 _isEmpty = false;
                 Plate.Fill?.Invoke();
+                BaseToggle.ButtonPressed?.Invoke();
             }
             else
             {

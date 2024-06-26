@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,9 @@ public class MessageBoard : MonoBehaviour
     [SerializeField] private GameObject _notesContent;
     [SerializeField] private Font _font;
     [SerializeField] private Image _fireworks;
+
+    public static Action OK;
+    public static Action KO;
 
     private void OnEnable()
     {
@@ -36,9 +40,14 @@ public class MessageBoard : MonoBehaviour
         int p, c, v;
 
         if (CorrectChoice(foods, out p, out v, out c))
+        {
             CorrectChoiceDisplay(foods);
+            OK?.Invoke();
+            _fireworks.enabled = true;
+        }
         else
         {
+            KO?.Invoke();
             _foodsText.text = _prefix + p + " proteins, " + c + " carbs and " + v + " veggies.";
             AddNote("Every meal should be well balanced.");
             AddNote("You need 1 per each food type.");
@@ -66,17 +75,11 @@ public class MessageBoard : MonoBehaviour
 
     private void CorrectChoiceDisplay(FoodScriptableObject[] foods)
     {
-        WellDone();
         _foodsText.text = _prefix + string.Join(", ", foods.Select(i => i.name));
         foreach (string fn in foods.SelectMany(f => f.notes))
             AddNote(fn);
 
         AddNote("A trick for the quantities: 2 parts veggies, 1 part proteins, 1 part carbs.");
-    }
-
-    private void WellDone()
-    {
-        _fireworks.enabled = true;
     }
 
     private void AddNote(string note)
@@ -86,7 +89,7 @@ public class MessageBoard : MonoBehaviour
         t.color = Color.black;
         t.text = _notePrefix + note;
         t.font = _font;
-        t.fontSize = 20;
+        t.fontSize = 22;
         ContentSizeFitter fit = n.AddComponent<ContentSizeFitter>();
         fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
         fit.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;

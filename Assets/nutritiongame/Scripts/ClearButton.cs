@@ -6,6 +6,12 @@ public class ClearButton : MonoBehaviour
 {
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(() => { Debug.Log("Clearing"); Plate.Clear?.Invoke(); });
+        GetComponent<Button>().onClick.AddListener(Clear);
+    }
+
+    private void Clear()
+    {
+        BaseToggle.ButtonPressed?.Invoke();
+        Plate.Clear?.Invoke();
     }
 }

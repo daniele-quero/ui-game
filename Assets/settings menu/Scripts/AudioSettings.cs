@@ -22,6 +22,13 @@ public class AudioSettings : MonoBehaviour
         _sfxMute.onValueChanged.AddListener(ToggleSFX);
     }
 
+    private void Start()
+    {
+        _master.value = 0f;
+        _music.value = -15f;
+        _sfx.value = -5f;
+    }
+
     private void SetMusicVolume(float v) => _mixer.SetFloat("Music", v);
     private void SetSFXVolume(float v) => _mixer.SetFloat("SFX", v);
     private void SetMasterVolume(float v) => _mixer.SetFloat("Master", v);

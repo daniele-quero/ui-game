@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private Transform _parent;
 
     public Transform StartingParent { get => _parent; }
+
+    public static Action Dragging;
 
     private void Start()
     {
@@ -28,6 +31,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = eventData.position;
+        Dragging?.Invoke();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
