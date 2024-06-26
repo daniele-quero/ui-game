@@ -23,15 +23,9 @@ public class GameLoader : MonoBehaviour, IPointerEnterHandler
         StartCoroutine(SetName());
     }
 
-    private void Disable()
-    {
-        _loadingButton.interactable = false;
-    }
+    private void Disable() => _loadingButton.interactable = false;
 
-    private void Enable()
-    {
-        _loadingButton.interactable = true;
-    }
+    private void Enable() => _loadingButton.interactable = true;
 
     private IEnumerator SetName()
     {
@@ -49,8 +43,5 @@ public class GameLoader : MonoBehaviour, IPointerEnterHandler
     }
 
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Tooltip.ActiveTooltip?.Invoke();
-    }
+    public void OnPointerEnter(PointerEventData eventData) => Tooltip.ActiveTooltip?.Invoke();
 }

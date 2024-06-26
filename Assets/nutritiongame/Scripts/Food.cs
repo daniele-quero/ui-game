@@ -14,15 +14,9 @@ public class Food : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public FoodScriptableObject FoodSO { get => _food; set => _food = value; }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        PointerOnFood?.Invoke(_food.name);
-    }
+    public void OnPointerEnter(PointerEventData eventData) => PointerOnFood?.Invoke(_food.name);
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        PointerOnFood?.Invoke(string.Empty);
-    }
+    public void OnPointerExit(PointerEventData eventData) => PointerOnFood?.Invoke(string.Empty);
 
     private void Start()
     {

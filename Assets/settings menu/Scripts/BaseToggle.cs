@@ -12,14 +12,8 @@ public class BaseToggle : MonoBehaviour
         MainMenuButton.GoToMain += Untoggle;
     }
 
-    protected void Untoggle()
-    {
-        Untoggle(false);
-    }
+    protected void Untoggle() => Untoggle(false);
 
-    protected void Untoggle(bool t)
-    {
-        _toggle.isOn = t;
-    }
+    protected void Untoggle(bool t) => _toggle.isOn = t;
 
 }

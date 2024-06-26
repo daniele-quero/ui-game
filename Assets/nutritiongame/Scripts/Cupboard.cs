@@ -4,7 +4,7 @@ using UnityEngine;
 public class Cupboard : MonoBehaviour
 {
     public string path;
-    // Start is called before the first frame update
+
     void Start()
     {
         System.Collections.Generic.List<FoodScriptableObject> fsos = Resources.LoadAll<FoodScriptableObject>("").ToList();

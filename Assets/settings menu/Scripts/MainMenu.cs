@@ -12,14 +12,7 @@ public class MainMenu : MonoBehaviour
         MainMenuButton.GoToMain += Activate;
     }
 
-    private void Activate()
-    {
-        _canvas.enabled = true;
-        //foreach (var scene in SceneManager.GetAllScenes().Select(s => s).Where(s => s.name.Contains("_game")))
-        //{
-        //    SceneManager.UnloadSceneAsync(scene, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
-        //}
-    }
+    private void Activate() => _canvas.enabled = true;
 
     private void Deactivate(bool otherActive)
     {

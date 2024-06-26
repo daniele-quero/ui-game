@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Drag.Dragging += () => _dragSound.Play();
+        Drag.Dragging += _dragSound.Play;
         MessageBoard.KO += _KOSound.Play;
         MessageBoard.OK += _OKSound.Play;
     }

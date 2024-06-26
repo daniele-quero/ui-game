@@ -8,7 +8,6 @@ public class GameChoiceButton : BaseToggle
     {
         base.OnEnable();
         OpenGameChoice += Untoggle;
-        //GameLoader.GameLoaderPressed += Untoggle;
     }
 
     public void LaunchOpenGameChoice(bool openGameChoice)

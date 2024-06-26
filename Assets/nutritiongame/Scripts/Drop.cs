@@ -31,5 +31,5 @@ public class Drop : MonoBehaviour, IDropHandler
 
     }
 
-    public void EmptySlot() { _isEmpty = true; }
+    public void EmptySlot() => _isEmpty = true;
 }

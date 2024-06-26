@@ -8,6 +8,7 @@ public class MessageBoard : MonoBehaviour
     private const string _prefix = "You have: ";
     private const string _notePrefix = "- ";
     private const string _default = "Choose 3 foods";
+
     [SerializeField] private Text _foodsText;
     [SerializeField] private Text _foodNameTooltipText;
     [SerializeField] private GameObject _notesContent;
@@ -48,7 +49,7 @@ public class MessageBoard : MonoBehaviour
         else
         {
             KO?.Invoke();
-            _foodsText.text = _prefix + p + " proteins, " + c + " carbs and " + v + " veggies.";
+            _foodsText.text = _prefix + p + " proteins, " + c + " carbs, " + v + " veggies.";
             AddNote("Every meal should be well balanced.");
             AddNote("You need 1 per each food type.");
             foods.ToList().ForEach(f => AddNote(f.name + " is a " + f.foodType.ToString()));
@@ -85,14 +86,17 @@ public class MessageBoard : MonoBehaviour
     private void AddNote(string note)
     {
         GameObject n = Instantiate(new GameObject(), _notesContent.transform);
+
         Text t = n.AddComponent<Text>();
         t.color = Color.black;
         t.text = _notePrefix + note;
         t.font = _font;
         t.fontSize = 22;
+
         ContentSizeFitter fit = n.AddComponent<ContentSizeFitter>();
         fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
         fit.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
+
         n.GetComponent<RectTransform>().sizeDelta = _notesContent.GetComponent<RectTransform>().sizeDelta;
     }
 }

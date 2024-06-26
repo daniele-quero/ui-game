@@ -1,4 +1,5 @@
 ﻿public enum Games
 {
-    MEMO
+    MEMO,
+    NUTRITION
 }

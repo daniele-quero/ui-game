@@ -16,9 +16,6 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         ActiveTooltip?.Invoke();
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _tooltipText.text = string.Empty;
-    }
+    public void OnPointerExit(PointerEventData eventData) => _tooltipText.text = string.Empty;
 
 }
