@@ -16,7 +16,11 @@ public class Settings : MonoBehaviour
 
     private void Activate(bool active)
     {
-        Debug.Log("messege received");
         _canvas.enabled = active;
+
+        if (active)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
     }
 }

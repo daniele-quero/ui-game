@@ -32,7 +32,6 @@ public class Card : MonoBehaviour
         CardManager.ResizingCells -= ResizeAll;
         GameManager.UncoverCoverCards -= OnUncoverCover;
         CardManager.UncoverCoverCards -= OnUncoverCover;
-        GetComponentInChildren<Button>().onClick.RemoveListener(Uncover);
     }
 
     private void ResizeAll(Vector2 size)

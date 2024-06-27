@@ -37,14 +37,12 @@ public class GameManager : MonoBehaviour
     {
         Card.CardAction += OnUncover;
         CardManager.AssertCardsLeft += InitializePlayerParameters;
-        PlayPause.PlayPausePressed += Pause;
     }
 
     private void OnDestroy()
     {
         Card.CardAction -= OnUncover;
         CardManager.AssertCardsLeft -= InitializePlayerParameters;
-        PlayPause.PlayPausePressed -= Pause;
     }
 
     private void OnEnable()
@@ -60,17 +58,13 @@ public class GameManager : MonoBehaviour
         LoadLevel();
     }
 
+    private void Start() => PrepareSFX();
+
     private void InitializePlayerParameters(int cardsLeft)
     {
         _cardsLeft = cardsLeft;
         CardsUpdated?.Invoke(_cardsLeft);
         LivesUpdated?.Invoke(_livesLeft);
-    }
-
-    private void Start()
-    {
-        PrepareSFX();
-
     }
 
     private void PrepareSFX()
@@ -83,11 +77,7 @@ public class GameManager : MonoBehaviour
         _audioSources.Add(GAMEOVER_KEY, sources[4]);
     }
 
-    private void LoadLevel()
-    {
-
-        _canvas.transform.GetChild(_level).gameObject.SetActive(true);
-    }
+    private void LoadLevel() => _canvas.transform.GetChild(_level).gameObject.SetActive(true);
 
     private void UnloadLevel()
     {
@@ -99,7 +89,6 @@ public class GameManager : MonoBehaviour
 
     private void OnUncover(CardScriptableObject.CardType cardType)
     {
-
         switch (cardType)
         {
             case CardScriptableObject.CardType.POINT:
@@ -135,7 +124,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     private GameObject EndLevel(String s)
     {
         var o = Instantiate(_endLevel, _canvas.transform);
@@ -143,7 +131,6 @@ public class GameManager : MonoBehaviour
         Destroy(o, _endLeveltime);
         return o;
     }
-
 
     private IEnumerator VictoryCoroutine(GameObject o)
     {
@@ -164,13 +151,5 @@ public class GameManager : MonoBehaviour
         _livesLeft = 1;
         LivesUpdated?.Invoke(_livesLeft);
         _canvas.transform.GetChild(_level).GetComponent<CardManager>().Restart();
-    }
-
-    private void Pause(bool isPaused)
-    {
-        if (isPaused)
-            Time.timeScale = 0;
-        else
-            Time.timeScale = 1;
     }
 }

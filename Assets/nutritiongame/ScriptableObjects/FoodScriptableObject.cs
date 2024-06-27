@@ -7,6 +7,7 @@ public class FoodScriptableObject : ScriptableObject
     {
         PROTEIN, CARB, VEGGIE
     }
+
     public Sprite icon;
     public FoodType foodType;
     public string[] notes;

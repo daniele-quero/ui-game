@@ -5,15 +5,11 @@ public class Drop : MonoBehaviour, IDropHandler
 {
     [SerializeField] private bool _isEmpty = true;
 
-    private void Awake()
-    {
-        Plate.Clear += EmptySlot;
-    }
+    private void Awake() => Plate.Clear += EmptySlot;
 
-    private void OnDestroy()
-    {
-        Plate.Clear -= EmptySlot;
-    }
+    private void OnDestroy() => Plate.Clear -= EmptySlot;
+
+    public void EmptySlot() => _isEmpty = true;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -36,6 +32,4 @@ public class Drop : MonoBehaviour, IDropHandler
         }
 
     }
-
-    public void EmptySlot() => _isEmpty = true;
 }

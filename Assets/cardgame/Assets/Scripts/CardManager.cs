@@ -22,10 +22,7 @@ public class CardManager : MonoBehaviour
 
     public LevelScriptableObject LevelScriptableObject { get; set; }
 
-    private void Awake()
-    {
-        GameManager.MalusEffect += Explode;
-    }
+    private void Awake() => GameManager.MalusEffect += Explode;
 
     private void OnDestroy() => GameManager.MalusEffect -= Explode;
 

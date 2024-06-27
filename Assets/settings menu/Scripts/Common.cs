@@ -15,5 +15,4 @@ public class Common : BaseScene
     }
 
     private void Deactivate() => _canvas.enabled = false;
-
 }

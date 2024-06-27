@@ -26,10 +26,7 @@ public class DisplayManager : MonoBehaviour
         CardManager.AssertLevel -= Level;
     }
 
-    void Start()
-    {
-        _cardsImg.sprite = _template.icon;
-    }
+    private void Start() => _cardsImg.sprite = _template.icon;
 
     public void Lives(int l) => _livesLeftText.text = l.ToString();
     public void Cards(int c) => _cardsLeftText.text = c.ToString();

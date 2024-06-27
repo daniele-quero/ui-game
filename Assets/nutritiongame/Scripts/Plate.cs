@@ -31,12 +31,10 @@ public class Plate : MonoBehaviour
 
     private void FillWithFood(FoodScriptableObject fso)
     {
-
         Debug.Log("Filling");
         _count++;
         if (_count == 3)
             Full?.Invoke(GetFoods());
-
     }
 
     private FoodScriptableObject[] GetFoods()

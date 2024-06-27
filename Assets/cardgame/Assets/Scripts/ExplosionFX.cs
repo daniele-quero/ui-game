@@ -7,8 +7,5 @@ public class ExplosionFX : MonoBehaviour
 
     public Vector3 Position { set => Position_(value); }
 
-    public void Position_(Vector3 pos)
-    {
-        rectTransform.position = pos;
-    }
+    public void Position_(Vector3 pos) => rectTransform.position = pos;
 }

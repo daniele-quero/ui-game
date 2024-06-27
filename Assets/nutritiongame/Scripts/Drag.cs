@@ -13,15 +13,9 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public static Action Dragging;
 
-    private void Awake()
-    {
-        Plate.Clear += ResetParent;
-    }
+    private void Awake() => Plate.Clear += ResetParent;
 
-    private void OnDestroy()
-    {
-        Plate.Clear -= ResetParent;
-    }
+    private void OnDestroy() => Plate.Clear -= ResetParent;
 
     private void ResetParent() => transform.SetParent(_parent);
 

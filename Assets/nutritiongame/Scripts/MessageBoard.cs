@@ -93,6 +93,7 @@ public class MessageBoard : MonoBehaviour
         p = 0;
         c = 0;
         v = 0;
+
         foreach (FoodScriptableObject food in foods)
         {
             switch (food.foodType)
