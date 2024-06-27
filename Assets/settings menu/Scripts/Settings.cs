@@ -3,10 +3,15 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     private Canvas _canvas;
+
+    private void Awake()
+    {
+        PlayPause.PlayPausePressed += Activate;
+    }
+
     private void OnEnable()
     {
         _canvas = GetComponent<Canvas>();
-        PlayPause.PlayPausePressed += Activate;
     }
 
     private void Activate(bool active)

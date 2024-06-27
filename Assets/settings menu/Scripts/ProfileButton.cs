@@ -4,9 +4,9 @@ public class ProfileButton : BaseToggle
 {
     public static Action<bool> OpenProfile;
 
-    protected override void OnEnable()
+    protected override void Awake()
     {
-        base.OnEnable();
+        base.Awake();
         OpenProfile += Untoggle;
     }
 

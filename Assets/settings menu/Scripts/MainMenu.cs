@@ -4,12 +4,13 @@ public class MainMenu : MonoBehaviour
 {
     private Canvas _canvas;
 
-    private void OnEnable()
+    private void Awake()
     {
         _canvas = GetComponent<Canvas>();
         GameChoiceButton.OpenGameChoice += Deactivate;
         ProfileButton.OpenProfile += Deactivate;
         MainMenuButton.GoToMain += Activate;
+        MainMenuButton.GoToMain += () => Plate.Clear?.Invoke();
     }
 
     private void Activate() => _canvas.enabled = true;

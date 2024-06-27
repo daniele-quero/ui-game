@@ -6,7 +6,7 @@ public class BaseToggle : MonoBehaviour
 {
     private Toggle _toggle;
     public static Action ButtonPressed;
-    protected virtual void OnEnable()
+    protected virtual void Awake()
     {
         _toggle = GetComponent<Toggle>();
         MainMenuButton.GoToMain += Untoggle;

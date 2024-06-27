@@ -4,9 +4,9 @@ public class GameChoiceButton : BaseToggle
 {
     public static Action<bool> OpenGameChoice;
 
-    protected override void OnEnable()
+    protected override void Awake()
     {
-        base.OnEnable();
+        base.Awake();
         OpenGameChoice += Untoggle;
     }
 

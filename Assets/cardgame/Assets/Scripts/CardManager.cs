@@ -13,7 +13,7 @@ public class CardManager : MonoBehaviour
 
     [SerializeField] private Slider _slider;
 
-    [SerializeField] Animator _anim; 
+    [SerializeField] Animator _anim;
 
     public static Action UncoverCoverCards;
     public static Action<Vector2> ResizingCells;
@@ -22,9 +22,15 @@ public class CardManager : MonoBehaviour
 
     public LevelScriptableObject LevelScriptableObject { get; set; }
 
-    void Start()
+    private void Awake()
     {
         GameManager.MalusEffect += Explode;
+    }
+
+    private void OnDestroy() => GameManager.MalusEffect -= Explode;
+
+    void Start()
+    {
         InitCardsLeft();
         AssertLevel?.Invoke(LevelScriptableObject.label);
         _cardContainer = GetComponentInChildren<GridLayoutGroup>();
@@ -42,9 +48,9 @@ public class CardManager : MonoBehaviour
         AssertCardsLeft?.Invoke(cardsLeft);
     }
 
-    public void  Restart()
+    public void Restart()
     {
-        foreach( var c in transform.GetComponentsInChildren<Card>())
+        foreach (var c in transform.GetComponentsInChildren<Card>())
         {
             c.Cover();
         }
@@ -62,7 +68,7 @@ public class CardManager : MonoBehaviour
         ShuffleCards(cards);
 
         int cols = Mathf.CeilToInt(Mathf.Sqrt(_cardContainer.transform.childCount));
-        int rows = Mathf.CeilToInt((float)_cardContainer.transform.childCount / (float)cols);
+        int rows = Mathf.CeilToInt(_cardContainer.transform.childCount / (float)cols);
 
         Vector2 space = new Vector2(_cardContainer.spacing.x, _cardContainer.spacing.y);
         Vector2 cell = new Vector2(_cardContainer.cellSize.x, _cardContainer.cellSize.y);

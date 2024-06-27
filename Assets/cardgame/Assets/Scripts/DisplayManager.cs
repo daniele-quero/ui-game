@@ -12,11 +12,18 @@ public class DisplayManager : MonoBehaviour
 
     [SerializeField] CardScriptableObject _template;
 
-    private void OnEnable()
+    private void Awake()
     {
         GameManager.LivesUpdated += Lives;
         GameManager.CardsUpdated += Cards;
         CardManager.AssertLevel += Level;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.LivesUpdated -= Lives;
+        GameManager.CardsUpdated -= Cards;
+        CardManager.AssertLevel -= Level;
     }
 
     void Start()
@@ -24,7 +31,7 @@ public class DisplayManager : MonoBehaviour
         _cardsImg.sprite = _template.icon;
     }
 
-    public void Lives(int l) => _livesLeftText.text = l.ToString(); 
+    public void Lives(int l) => _livesLeftText.text = l.ToString();
     public void Cards(int c) => _cardsLeftText.text = c.ToString();
     public void Level(string s) => _levelText.text = s;
 

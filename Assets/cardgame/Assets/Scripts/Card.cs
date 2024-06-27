@@ -19,12 +19,20 @@ public class Card : MonoBehaviour
 
     public static Action<CardScriptableObject.CardType> CardAction;
 
-    private void OnEnable()
+    private void Awake()
     {
         CardManager.ResizingCells += ResizeAll;
         GameManager.UncoverCoverCards += OnUncoverCover;
         CardManager.UncoverCoverCards += OnUncoverCover;
         GetComponentInChildren<Button>().onClick.AddListener(Uncover);
+    }
+
+    private void OnDestroy()
+    {
+        CardManager.ResizingCells -= ResizeAll;
+        GameManager.UncoverCoverCards -= OnUncoverCover;
+        CardManager.UncoverCoverCards -= OnUncoverCover;
+        GetComponentInChildren<Button>().onClick.RemoveListener(Uncover);
     }
 
     private void ResizeAll(Vector2 size)

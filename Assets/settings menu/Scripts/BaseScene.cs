@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class BaseScene : MonoBehaviour
 {
     protected Canvas _canvas;
-    virtual protected void OnEnable()
+    protected virtual void Awake()
     {
         _canvas = GetComponent<Canvas>();
     }

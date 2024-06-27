@@ -13,12 +13,23 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public static Action Dragging;
 
+    private void Awake()
+    {
+        Plate.Clear += ResetParent;
+    }
+
+    private void OnDestroy()
+    {
+        Plate.Clear -= ResetParent;
+    }
+
+    private void ResetParent() => transform.SetParent(_parent);
+
     private void Start()
     {
         _image = GetComponent<Image>();
         _position = transform.position;
         _parent = transform.parent;
-        Plate.Clear += () => transform.SetParent(_parent);
     }
 
     private void SetAplpha(float a)
@@ -45,7 +56,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             Plate.Unfill?.Invoke();
         }
 
-        transform.SetParent(_parent);
+        ResetParent();
     }
 
     public void OnEndDrag(PointerEventData eventData)

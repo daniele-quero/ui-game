@@ -1,8 +1,8 @@
 public class Common : BaseScene
 {
-    protected override void OnEnable()
+    protected override void Awake()
     {
-        base.OnEnable();
+        base.Awake();
         GameChoiceButton.OpenGameChoice += Activate;
         ProfileButton.OpenProfile += Activate;
         MainMenuButton.GoToMain += Deactivate;

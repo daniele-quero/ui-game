@@ -15,11 +15,15 @@ public class GameLoader : MonoBehaviour, IPointerEnterHandler
 
     public static Action<Games> GameLoaded;
 
+    private void Awake()
+    {
+        GameLoaderPressed += Disable;
+        GameChoiceButton.ButtonPressed += Enable;
+    }
+
     private void Start()
     {
         _loadingButton = GetComponent<Button>();
-        GameLoaderPressed += Disable;
-        GameChoiceButton.ButtonPressed += Enable;
         StartCoroutine(SetName());
     }
 

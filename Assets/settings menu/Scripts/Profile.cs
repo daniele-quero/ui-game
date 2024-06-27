@@ -1,8 +1,8 @@
 public class Profile : BaseScene
 {
-    protected override void OnEnable()
+    protected override void Awake()
     {
-        base.OnEnable();
+        base.Awake();
         ProfileButton.OpenProfile += Activate;
     }
 

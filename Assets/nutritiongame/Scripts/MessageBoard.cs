@@ -11,29 +11,61 @@ public class MessageBoard : MonoBehaviour
 
     [SerializeField] private Text _foodsText;
     [SerializeField] private Text _foodNameTooltipText;
+
     [SerializeField] private GameObject _notesContent;
     [SerializeField] private Font _font;
     [SerializeField] private Image _fireworks;
 
+    [SerializeField] private GameObject _tooltipTemplate;
+
     public static Action OK;
     public static Action KO;
 
-    private void OnEnable()
+    private void Awake()
     {
         Plate.Full += Show;
         Plate.Unfill += ClearUp;
         Plate.Clear += ClearUp;
+    }
 
-        Food.PointerOnFood += (n) => _foodNameTooltipText.text = n;
+    private void OnDestroy()
+    {
+        Plate.Full -= Show;
+        Plate.Unfill -= ClearUp;
+        Plate.Clear -= ClearUp;
+        Food.PointerOnFood -= SetFoodTooltipText;
+    }
 
+    private void OnEnable()
+    {
         ClearUp();
+        InitTooltip();
     }
 
     private void ClearUp()
     {
+        Debug.Log("enabling");
         _fireworks.enabled = false;
         _foodsText.text = _default;
         _notesContent.GetComponentsInChildren<Text>().ToList().ForEach(t => Destroy(t.gameObject));
+    }
+
+    private void InitTooltip()
+    {
+        if (_foodNameTooltipText?.gameObject != null)
+            Destroy(_foodNameTooltipText.gameObject);
+
+        var t = Instantiate(_tooltipTemplate);
+        t.transform.SetParent(transform);
+        t.transform.localPosition = new Vector3(8.5f, -293, 0);
+        _foodNameTooltipText = t.GetComponent<Text>();
+
+        Food.PointerOnFood += SetFoodTooltipText;
+    }
+
+    private void SetFoodTooltipText(string n)
+    {
+        _foodNameTooltipText.text = n;
     }
 
     private void Show(FoodScriptableObject[] foods)
@@ -85,7 +117,8 @@ public class MessageBoard : MonoBehaviour
 
     private void AddNote(string note)
     {
-        GameObject n = Instantiate(new GameObject(), _notesContent.transform);
+        GameObject n = new GameObject();
+        n.transform.SetParent(_notesContent.transform);
 
         Text t = n.AddComponent<Text>();
         t.color = Color.black;

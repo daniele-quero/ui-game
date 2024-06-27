@@ -7,7 +7,7 @@ public class CommonSounds : MonoBehaviour
     [SerializeField] private AudioSource _buttonSound;
     [SerializeField] private AudioSource _mainMusic;
 
-    private void OnEnable()
+    private void Awake()
     {
         Tooltip.ActiveTooltip += _tooltipSound.Play;
         BaseToggle.ButtonPressed += _buttonSound.Play;

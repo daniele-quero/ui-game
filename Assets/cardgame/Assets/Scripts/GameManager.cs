@@ -33,12 +33,22 @@ public class GameManager : MonoBehaviour
     public static Action<int> LivesUpdated;
     public static Action<int> CardsUpdated;
 
-    private void OnEnable()
+    private void Awake()
     {
         Card.CardAction += OnUncover;
         CardManager.AssertCardsLeft += InitializePlayerParameters;
         PlayPause.PlayPausePressed += Pause;
+    }
 
+    private void OnDestroy()
+    {
+        Card.CardAction -= OnUncover;
+        CardManager.AssertCardsLeft -= InitializePlayerParameters;
+        PlayPause.PlayPausePressed -= Pause;
+    }
+
+    private void OnEnable()
+    {
         foreach (var l in _levels)
         {
             var g = Instantiate(_gameTemplate, _canvas.transform);

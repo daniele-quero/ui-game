@@ -12,7 +12,7 @@ public class AudioSettings : MonoBehaviour
     [SerializeField] private Toggle _sfxMute;
     [SerializeField] private Toggle _masterMute;
 
-    private void OnEnable()
+    private void Awake()
     {
         _music.onValueChanged.AddListener(SetMusicVolume);
         _sfx.onValueChanged.AddListener(SetSFXVolume);

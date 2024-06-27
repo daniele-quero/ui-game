@@ -1,8 +1,8 @@
 public class GameChoice : BaseScene
 {
-    protected override void OnEnable()
+    protected override void Awake()
     {
-        base.OnEnable();
+        base.Awake();
         GameChoiceButton.OpenGameChoice += Activate;
         GameLoader.GameLoaderPressed += Deactivate;
     }
