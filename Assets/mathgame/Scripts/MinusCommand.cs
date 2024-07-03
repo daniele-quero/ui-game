@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class MinusCommand : OperationCommand
 {
     public override string Sign => "-";
-    public override int Points => 10;
+    public override int Points => 1000;
     public override string Name => "Subtraction";
 
     public override void Set(Text a, Text b, Text sign, Text feedback, out int aNum, out int bNum, InputField result)

@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     private const string GAMEOVER_KEY = "Gameover";
     private int _cardsLeft;
     [SerializeField] private int _livesLeft = 3;
+    [SerializeField] private int _pointScore = 500;
+    [SerializeField] private int _malusScore = -150;
+    [SerializeField] private int _bonusScore = 150;
 
     [SerializeField] private LevelScriptableObject[] _levels;
     [SerializeField] private GameObject _gameTemplate;
@@ -23,9 +26,8 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<string, AudioSource> _audioSources = new Dictionary<string, AudioSource>();
 
-    private int _thisLevel;
     private int _level;
-
+    private int _score = 0;
     private float _endLeveltime = 3f;
 
     public static Action UncoverCoverCards;
@@ -94,6 +96,7 @@ public class GameManager : MonoBehaviour
             case CardScriptableObject.CardType.POINT:
                 {
                     _audioSources[POINT_KEY].Play();
+                    _score += _pointScore;
                     if (--_cardsLeft <= 0)
                     {
                         _audioSources[VICTORY_KEY].Play();
@@ -105,6 +108,7 @@ public class GameManager : MonoBehaviour
                 }
             case CardScriptableObject.CardType.MALUS:
                 {
+                    _score = Mathf.Max(0, _score + _malusScore);
                     _audioSources[MALUS_KEY].Play();
                     MalusEffect?.Invoke();
                     if (--_livesLeft < 0)
@@ -117,6 +121,7 @@ public class GameManager : MonoBehaviour
                 }
             case CardScriptableObject.CardType.BONUS:
                 {
+                    _score += _bonusScore;
                     _audioSources[BONUS_KEY].Play();
                     UncoverCoverCards?.Invoke();
                     break;

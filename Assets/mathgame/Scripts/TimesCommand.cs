@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class TimesCommand : OperationCommand
 {
     public override string Sign => "x";
-    public override int Points => 15;
+    public override int Points => 1500;
     public override string Name => "Multiplication";
 
     public override void Set(Text a, Text b, Text sign, Text feedback, out int aNum, out int bNum, InputField result)

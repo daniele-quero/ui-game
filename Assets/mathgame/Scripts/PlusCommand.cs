@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PlusCommand : OperationCommand
 {
     public override string Sign => "+";
-    public override int Points => 5;
+    public override int Points => 500;
     public override string Name => "Addition";
 
     public override void Set(Text a, Text b, Text sign, Text feedback, out int aNum, out int bNum, InputField result)

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class HalfCommand : OperationCommand
 {
     public override string Sign => "h";
-    public override int Points => 15;
+    public override int Points => 1500;
     public override string Name => "Halving";
 
     public override void Set(Text a, Text b, Text sign, Text feedback, out int aNum, out int bNum, InputField result)

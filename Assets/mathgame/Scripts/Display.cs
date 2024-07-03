@@ -8,14 +8,26 @@ public class Display : MonoBehaviour
     [SerializeField] Text _current;
     [SerializeField] Text _next;
     [SerializeField] Text _left;
+    [SerializeField] Text _score;
 
     private const string CurrentPrefix = "Current: ";
     private const string NextPrefix = "Next: ";
     private const string LeftPrefix = "Left: ";
+    private const string ScorePrefix = "Score: ";
 
-    private void Awake() => MathGameDeluxe.QuestionLoaded += UpdateDisplay;
+    private void Awake()
+    {
+        MathGameDeluxe.QuestionLoaded += UpdateDisplay;
+        MathGameDeluxe.ScoreUpdated += UpdateScore;
+    }
 
-    private void OnDestroy() => MathGameDeluxe.QuestionLoaded -= UpdateDisplay;
+    private void OnDestroy()
+    {
+        MathGameDeluxe.QuestionLoaded -= UpdateDisplay;
+        MathGameDeluxe.ScoreUpdated -= UpdateScore;
+    }
+
+    private void UpdateScore(int s) => _score.text = ScorePrefix + s;
 
     private void UpdateDisplay(List<OperationCommand> operations)
     {

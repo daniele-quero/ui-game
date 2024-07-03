@@ -10,6 +10,7 @@ public class MathGameDeluxe : MonoBehaviour
     [Header("Game Design Options")]
     [SerializeField] private float _waitTime = 4f;
     [SerializeField] private int _questionNum = 5;
+    [SerializeField] private int _malusScore = -200;
 
     [Header("UI References")]
     [SerializeField] private Text _a;
@@ -35,6 +36,7 @@ public class MathGameDeluxe : MonoBehaviour
     public static Action CorrectAnswer;
     public static Action WrongAnswer;
     public static Action<int> Victory;
+    public static Action<int> ScoreUpdated;
     public static Action<List<OperationCommand>> QuestionLoaded;
 
     private void Start()
@@ -76,7 +78,8 @@ public class MathGameDeluxe : MonoBehaviour
         _feedback.color = _errorColor;
         _feedback.text = "Oh, no! Try again!";
         _result.ActivateInputField();
-        _score = Mathf.Max(0, _score - 2);
+        _score = Mathf.Max(0, _score + _malusScore);
+        ScoreUpdated?.Invoke(_score);
         WrongAnswer?.Invoke();
     }
 
@@ -86,7 +89,7 @@ public class MathGameDeluxe : MonoBehaviour
         _feedback.text = "Great! Guess the next one now!";
         _result.interactable = false;
         _score += _operation.Points;
-
+        ScoreUpdated?.Invoke(_score);
         CorrectAnswer?.Invoke();
 
         yield return _wait;
