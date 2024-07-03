@@ -7,7 +7,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class GameLoader : MonoBehaviour, IPointerEnterHandler
 {
-    [SerializeField] string _gameName;
     [SerializeField] Games _game;
     [SerializeField] Image _loadingBar;
     private Button _loadingButton;
@@ -36,7 +35,9 @@ public class GameLoader : MonoBehaviour, IPointerEnterHandler
         //for some reason the text component is still null on start when I try to set the text value
         Text t = GetComponentInChildren<Text>();
         yield return new WaitUntil(() => t != null);
-        t.text = _gameName;
+        var chars = _game.ToString().ToLower().ToCharArray();
+        chars[0] = char.ToUpper(chars[0]);
+        t.text = new string(chars);
     }
 
     public void Load()
@@ -45,7 +46,6 @@ public class GameLoader : MonoBehaviour, IPointerEnterHandler
         BaseToggle.ButtonPressed?.Invoke();
         GameLoaded?.Invoke(_game);
     }
-
 
     public void OnPointerEnter(PointerEventData eventData) => Tooltip.ActiveTooltip?.Invoke();
 }

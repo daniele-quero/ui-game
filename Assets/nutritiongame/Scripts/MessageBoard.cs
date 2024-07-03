@@ -44,7 +44,6 @@ public class MessageBoard : MonoBehaviour
 
     private void ClearUp()
     {
-        Debug.Log("enabling");
         _fireworks.enabled = false;
         _foodsText.text = _default;
         _notesContent.GetComponentsInChildren<Text>().ToList().ForEach(t => Destroy(t.gameObject));
