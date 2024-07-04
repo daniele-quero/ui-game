@@ -13,7 +13,7 @@ public class DoubleCommand : OperationCommand
         bNum = 2;
 
         CommonSet(a, b, sign, feedback, aNum, bNum, Sign, result);
-        a.text = "the double of ";
+        a.text = "the double of";
         b.text = aNum.ToString();
         sign.text = string.Empty;
     }

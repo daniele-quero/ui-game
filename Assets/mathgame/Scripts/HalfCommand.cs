@@ -14,7 +14,7 @@ public class HalfCommand : OperationCommand
         bNum = 2;
 
         CommonSet(a, b, sign, feedback, aNum, bNum, Sign, result);
-        a.text = "the half of ";
+        a.text = "the half of";
         b.text = aNum.ToString();
         sign.text = string.Empty;
     }
