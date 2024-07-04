@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public static Action MalusEffect;
     public static Action<int> LivesUpdated;
     public static Action<int> CardsUpdated;
+    public static Action<int> ScoreUpdated;
 
     private void Awake()
     {
@@ -96,32 +97,36 @@ public class GameManager : MonoBehaviour
             case CardScriptableObject.CardType.POINT:
                 {
                     _audioSources[POINT_KEY].Play();
-                    _score += _pointScore;
+                    ScorePoints(_pointScore);
+
                     if (--_cardsLeft <= 0)
                     {
                         _audioSources[VICTORY_KEY].Play();
                         StartCoroutine(VictoryCoroutine(EndLevel("Victory!")));
                         break;
                     }
+
                     CardsUpdated?.Invoke(_cardsLeft);
                     break;
                 }
             case CardScriptableObject.CardType.MALUS:
                 {
-                    _score = Mathf.Max(0, _score + _malusScore);
+                    ScorePoints(_malusScore);
                     _audioSources[MALUS_KEY].Play();
                     MalusEffect?.Invoke();
+
                     if (--_livesLeft < 0)
                     {
                         _audioSources[GAMEOVER_KEY].Play();
                         StartCoroutine(GameOverCoroutine(EndLevel(GAMEOVER_KEY)));
                     }
+
                     LivesUpdated?.Invoke(_livesLeft);
                     break;
                 }
             case CardScriptableObject.CardType.BONUS:
                 {
-                    _score += _bonusScore;
+                    ScorePoints(_bonusScore);
                     _audioSources[BONUS_KEY].Play();
                     UncoverCoverCards?.Invoke();
                     break;
@@ -156,5 +161,13 @@ public class GameManager : MonoBehaviour
         _livesLeft = 1;
         LivesUpdated?.Invoke(_livesLeft);
         _canvas.transform.GetChild(_level).GetComponent<CardManager>().Restart();
+    }
+
+    private void ScorePoints(int points)
+    {
+        _score += points;
+        _score = Mathf.Max(0, _score);
+        ScoreManager.ScoreUpdated?.Invoke(Games.MEMO, _score);
+        ScoreUpdated?.Invoke(_score);
     }
 }

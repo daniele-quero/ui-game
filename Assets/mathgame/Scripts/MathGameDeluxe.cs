@@ -27,7 +27,7 @@ public class MathGameDeluxe : MonoBehaviour
 
     private int _aNum;
     private int _bNum;
-
+    [SerializeField]
     private int _score = 0;
 
     private List<OperationCommand> _questions = new List<OperationCommand>();
@@ -78,8 +78,7 @@ public class MathGameDeluxe : MonoBehaviour
         _feedback.color = _errorColor;
         _feedback.text = "Oh, no! Try again!";
         _result.ActivateInputField();
-        _score = Mathf.Max(0, _score + _malusScore);
-        ScoreUpdated?.Invoke(_score);
+        ScorePoints(_malusScore);
         WrongAnswer?.Invoke();
     }
 
@@ -88,8 +87,7 @@ public class MathGameDeluxe : MonoBehaviour
         _feedback.color = _okColor;
         _feedback.text = "Great! Guess the next one now!";
         _result.interactable = false;
-        _score += _operation.Points;
-        ScoreUpdated?.Invoke(_score);
+        ScorePoints(_operation.Points);
         CorrectAnswer?.Invoke();
 
         yield return _wait;
@@ -98,6 +96,16 @@ public class MathGameDeluxe : MonoBehaviour
             LoadNextQuestion();
         else
             Victory?.Invoke(_score);
+    }
+
+    private void ScorePoints(int points)
+    {
+        Debug.Log("prev: " + _score);
+        _score += points;
+        _score = Mathf.Max(0, _score);
+        ScoreUpdated?.Invoke(_score);
+        Debug.Log("new: " + _score);
+        ScoreManager.ScoreUpdated?.Invoke(Games.MATH, _score);
     }
 
     public void ReadAnswer(string r)
