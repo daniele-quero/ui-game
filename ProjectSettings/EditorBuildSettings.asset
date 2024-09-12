@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/settings menu/Scenes/CommonObjects.unity
-    guid: 5ff3f45090c56f44ba0ed289690015c8
-  - enabled: 1
     path: Assets/settings menu/Scenes/Canvases.unity
     guid: b90769bbce459684fb5ab54def9752fc
-  - enabled: 1
+  - enabled: 0
+    path: Assets/settings menu/Scenes/CommonObjects.unity
+    guid: 5ff3f45090c56f44ba0ed289690015c8
+  - enabled: 0
     path: Assets/settings menu/Scenes/GamesContainer.unity
     guid: 46835f017f3a2cd49a56e507d612f5b8
   m_configObjects: {}
