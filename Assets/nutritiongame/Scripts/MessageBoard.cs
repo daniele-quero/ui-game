@@ -119,6 +119,7 @@ public class MessageBoard : MonoBehaviour
     {
         GameObject n = new GameObject();
         n.transform.SetParent(_notesContent.transform);
+        n.transform.localScale = Vector3.one;
 
         Text t = n.AddComponent<Text>();
         t.color = Color.black;

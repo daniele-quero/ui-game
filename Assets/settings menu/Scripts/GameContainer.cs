@@ -21,6 +21,8 @@ public class GameContainer : MonoBehaviour
     {
         if (game == _gameType)
             _game.SetActive(true);
+        else
+            _game.SetActive(false);
     }
 
     public void PrepareGame()
